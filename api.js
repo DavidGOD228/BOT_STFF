@@ -43,7 +43,8 @@ module.exports = {
         })
         .end();
         
-  },
+  });
+},
   db: db,
   getUsers: async () => {
     var data = [];

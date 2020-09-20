@@ -227,8 +227,8 @@ bot.onText(/(\d{9,10}) (\d{1,10})/, async function(msg, match) {
   setTimeout(async () => {
     try {
         console.log(receipt);
-        bot.deleteMessage(msg.chat.id, msg.message.message_id);
-        bot.sendMessage(msg.chat.id, 'Проверка завершилась 💰', goBackSeparated);    
+        // bot.deleteMessage(msg.chat.id, msg.message.message_id);
+        bot.sendMessage(msg.chat.id, 'Проверка завершилась 💰. К сожалению, вы ввели пробную или неверную транзакцию (ее не существует или она не предпологает пополнение счёта DRUG_STFF account)', goBackSeparated);    
     } catch (error) {
       console.error('Shit', error);
     }
