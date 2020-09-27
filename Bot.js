@@ -3,8 +3,6 @@ const token = '1299171646:AAHuRE0_g5AmF6zZ00UJ-GZFNFTjoS0Z5jI';
 const bot = new TelegramBot(token, { polling: true });
 const drugsDescription = require('./drugs.json');
 const api = require('./api');
-var isReceived = false;
-var freelancehuntToken = 'undefined';
 const updateRate = 3000;
 
 async function GetReceipt(receiptId, amount) {
@@ -24,20 +22,6 @@ async function GetReceipt(receiptId, amount) {
   var response = api.request(requestOptions);
   response.then(res=>{console.log(res);});
 
-  return response;
-}
-
-async function GetMessages(Token) {
-  let requestOptions = {
-    method: 'GET',
-    hostname: 'api.freelancehunt.com',
-    path: '/v2/threads',
-    headers: {
-      Authorization: 'Bearer ' + Token
-    }
-  };
-
-  var response = await api.request(requestOptions);
   return response;
 }
 
@@ -82,44 +66,33 @@ const options = {
         [{ text: 'Богданівка', callback_data: 'Львів_Богданівка'}],
         [{ text: '⚙️ Меню', callback_data: 'GO_BACK_MENU'}],
       ] })}}],
-      [{ text: 'Вінниця', callback_data: '1', options: {
+      [{ text: 'Вінниця', callback_data: '3', options: {
         reply_markup: JSON.stringify({
           inline_keyboard: [
-        [{ text: 'Жовтневый', callback_data: 'Киев_Жовтневый'}],
-        [{ text: 'Ленинградский', callback_data: 'Киев_Ленинградский'}],
-        [{ text: 'Минский', callback_data: 'Киев_Жовтневый'}],
-        [{ text: 'Московский', callback_data: 'Киев_Московский'}],
-        [{ text: 'Подольский', callback_data: 'Киев_Подольский'}],
-        [{ text: 'Печерский', callback_data: 'Киев_Печерский'}],
-        [{ text: 'Радянский', callback_data: 'Киев_Радянский'}],
-        [{ text: 'Старокиевский', callback_data: 'Киев_Старокиевский'}],
-        [{ text: 'Шевченковский', callback_data: 'Киев_Шевченковский'}],
-        [{ text: 'Ватутинский', callback_data: 'Киев_Ватутинский'}],
-        [{ text: 'Дарницкий', callback_data: 'Киев_Дарницкий'}],
-        [{ text: 'Днепровский', callback_data: 'Киев_Днепровский'}],
+        [{ text: 'Царина', callback_data: 'Вінниця_Царина'}],
+        [{ text: 'Старе місто', callback_data: 'Вінниця_Старе_місто'}],
+        [{ text: 'Замостяний автовокзал', callback_data: 'Вінниця_Замостяний_автовокзал'}],
+        [{ text: 'Центральний автовокзал', callback_data: 'Вінниця_Центральний_автовокзал'}],
+        [{ text: 'Центр', callback_data: 'Вінниця_Центр'}],
+        [{ text: 'Маяк', callback_data: 'Вінниця_Маяк'}],
+        [{ text: 'ВНТУ', callback_data: 'Вінниця_ВНТУ'}],
         [{ text: '⚙️ Меню', callback_data: 'GO_BACK_MENU'}],
       ] })}}],
-      [{ text: 'Днепр', callback_data: '1', options: {
+      [{ text: 'Днепр', callback_data: '4', options: {
         reply_markup: JSON.stringify({
           inline_keyboard: [
-        [{ text: 'Жовтневый', callback_data: 'Киев_Жовтневый'}],
-        [{ text: 'Ленинградский', callback_data: 'Киев_Ленинградский'}],
-        [{ text: 'Минский', callback_data: 'Киев_Жовтневый'}],
-        [{ text: 'Московский', callback_data: 'Киев_Московский'}],
-        [{ text: 'Подольский', callback_data: 'Киев_Подольский'}],
-        [{ text: 'Печерский', callback_data: 'Киев_Печерский'}],
-        [{ text: 'Радянский', callback_data: 'Киев_Радянский'}],
-        [{ text: 'Старокиевский', callback_data: 'Киев_Старокиевский'}],
-        [{ text: 'Шевченковский', callback_data: 'Киев_Шевченковский'}],
-        [{ text: 'Ватутинский', callback_data: 'Киев_Ватутинский'}],
-        [{ text: 'Дарницкий', callback_data: 'Киев_Дарницкий'}],
-        [{ text: 'Днепровский', callback_data: 'Киев_Днепровский'}],
+        [{ text: 'Амур-Нижнеднепровский', callback_data: 'Днепр_Амур-Нижнеднепровский'}],
+        [{ text: 'Шевченковский', callback_data: 'Днепр_Шевченковский'}],
+        [{ text: 'Соборный', callback_data: 'Днепр_Соборный'}],
+        [{ text: 'Индустриальный', callback_data: 'Днепр_Индустриальный'}],
+        [{ text: 'Центральный', callback_data: 'Днепр_Центральный'}],
+        [{ text: 'Чечеловский', callback_data: 'Днепр_Чечеловский'}],
+        [{ text: 'Новокодацкий', callback_data: 'Днепр_Новокодацкий'}],
+        [{ text: 'Самарский', callback_data: 'Днепр_Самарский'}],
         [{ text: '⚙️ Меню', callback_data: 'GO_BACK_MENU'}],
       ] })}}],
-      // [{ text: 'Вінниця', callback_data: '3', regions: ['Царина', 'Старе місто', 'Замостяний автовокзал', 'центральний автовокзал', 'Центр', 'Район "Маяка"', 'Район ВНТУ'] }],
-      // [{ text: 'Днепр', callback_data: '4', regions: ['Амур-Нижнеднепровский', 'Шевченковский', 'Соборный', 'Индустриальный', 'Центральный', 'Чечеловский', 'Новокодацкий', 'Самарский'] }],
       [{ text: '💵 Пополнить баланс 💵', callback_data: '5' }],
-      [{ text: '👤 Профиль', callback_data: '6' }],
+      [{ text: '👤 Профиль / Счёт 💰', callback_data: '6' }],
     ]
   })
 };
@@ -138,9 +111,7 @@ const drugsData = [
   'GO_BACK_REGION',
  ];
 
-const drugsOptions =  {
-  reply_markup: JSON.stringify({
-    inline_keyboard: [
+const drugsOptions = [
       [{ text: '❌ BLUEBERRY 2G ❌', callback_data: drugsData[0]}],
   [{ text: '❌ BLUEBERRY 5G❌', callback_data: drugsData[1]}],
   [{ text: '❄️ АМРНЕТAMINE SULFATE 0.5G ❄️', callback_data: drugsData[2]}],
@@ -151,20 +122,40 @@ const drugsOptions =  {
   [{ text: '🌎 LSD 220UG 🌍', callback_data: drugsData[7]}],
   [{ text: '🍊 ORANGE TESLA 300MG 🍊', callback_data: drugsData[8]}],
   [{ text: '💋 MEPHEDRONE 0.5G 💋', callback_data: drugsData[9]}],
-  [{ text: '⬅️ Назад', callback_data: 'GO_BACK_REGION'}],
-] })}
+];
 
-const goBackSeparated=  {
+var selectedCityNumber = '';
+var selectedRegion = '';
+
+function getDrugsOptions() {
+  let tempDrugsOptions = [];
+  drugsOptions.map((drug, idx)=>{
+    if(selectedRegion.length % idx != 0 && selectedRegion.length % idx != 4)
+    tempDrugsOptions.push(drug);
+  });
+
+  return {
+    reply_markup: JSON.stringify({
+      inline_keyboard: [...tempDrugsOptions,
+        [{ text: '⬅️ Назад', callback_data: 'GO_BACK_REGION'}],
+      ]
+    })
+  };
+};
+
+const goBackSeparated = {
   reply_markup: JSON.stringify({
     inline_keyboard: [
       [{ text: '⬅️ Назад', callback_data: 'GO_BACK_DRUGS_LIST'}],
-] })}
+      [{ text: '💵 Пополнить баланс 💵', callback_data: '5' }],
+      [{ text: '👤 Профиль / Счёт 💰', callback_data: '6' }],
+    ] })}
 
 const goBackBuySeparated=  {
   reply_markup: JSON.stringify({
     inline_keyboard: [
-      [{ text: '⬅️ Назад', callback_data: 'GO_BACK_DRUGS_LIST'}],
       [{ text: '💸 Купить', callback_data: 'BY_DRUG'}],
+      [{ text: '⬅️ Назад', callback_data: 'GO_BACK_DRUGS_LIST'}],
 ] })}
 
 const goBackMenuSeparated =  {
@@ -180,28 +171,23 @@ bot.on('callback_query', function(msg) {
     bot.sendMessage(msg.message.chat.id, '❄️ Виберите город ❄️', options);
   }
   if (answer == '1' || answer == '2' || answer == '3' || answer == '4') {
+    selectedCityNumber = answer;
     bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
     bot.sendMessage(msg.message.chat.id, '🖤 Виберите район 🖤', JSON.parse(options.reply_markup).inline_keyboard[answer-1][0].options);
-
-    // bot.sendMessage(msg.from.id, 'Write your API key: ');
-    // bot.onText(/[a-z0-9_-]{40}/, async function(msg, match) {
-    //   freelancehuntToken = msg.text;
-    //   var UserList = await api.getUsers();
-    //   if (
-    //     UserList.findIndex(
-    //       el => el.freelancehuntToken === freelancehuntToken
-    //     ) == -1
-    //   ) {
-    //     api.addUsers(freelancehuntToken);
-    //   }
-    // });
-  
   } else if (answer == '5') {
     bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
-    bot.sendMessage(msg.from.id, "Пришло время приступить к оплате)💎\nВаш личный EasyPay счёт - 43373973\n\nПример ввода данных:\n9876543210 250\n\n''ИД операции'' и ''сумa''\n\nСохраняйте ваш чек к моменту получения товара.\nВ случае нежелания пополнить счёт, нажмите кнопку ''Отменить''. Если возникли трудности с оплатой, пишите - @drug_stuf 🔥", goBackMenuSeparated);
+    bot.sendMessage(msg.from.id, "Пришло время приступить к оплате\n\n⚜️⚜️⚜️⚜️⚜️\nВаш личный EasyPay счёт - 43373973\n⚜️⚜️⚜️⚜️⚜️\n️\n📛📛📛📛📛️\n️В данный момент Drug STFF поддерживает оплату только через EasyPay, для возможности возврата денег и полной анонимности покупателя\n📛📛📛📛📛\n\nℹ️ℹ️ℹ️ℹ️ℹ️️\n️Для пополнения счёта Drug STFF account, вам нужно пополнить ваш личный EasyPay счёт на опредилённую сумму, после этого, для верификации транзакции, вам нужно ручками ✍️ написать боту ИД операции и суму пополнения (сразу после этого сообщения)\nℹ️ℹ️ℹ️ℹ️ℹ️\n\nПример ввода данных:\n9876543210 250\n\n''ИД операции'' и ''сумa''\n\nСохраняйте ваш чек к моменту получения товара.\nВ случае нежелания пополнить счёт, нажмите кнопку ''Отменить''. Если возникли трудности с оплатой, пишите - @drug_stuf 🔥", goBackMenuSeparated);
+  } else if (answer == '6') {
+    bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
+    bot.sendMessage(msg.from.id,
+        `👤 Профiль ${msg.from.id}\n` +
+        " 💷 Сума на рахунку 💷 0 UAH\n" +
+        " 👏 Всього покупок: 0\n" +
+        " 💥 Рейтинг  (0)(0%)\n" +
+        " 💸 Поповнення 0 UAH", goBackMenuSeparated);
   } else if(answer == 'GO_BACK_REGION') {
     bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
-    bot.sendMessage(msg.message.chat.id, '🖤 Виберите район 🖤', JSON.parse(options.reply_markup).inline_keyboard[0][0].options);
+    bot.sendMessage(msg.message.chat.id, '🖤 Виберите район 🖤', JSON.parse(options.reply_markup).inline_keyboard[selectedCityNumber-1][0].options);
   } else if(answer == 'BY_DRUG') {
     bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
     bot.sendMessage(msg.message.chat.id, "Для этой покупки у вас недостаточно средств. 😩 Сначала нужно пополнить счёт 😈💰", goBackSeparated);
@@ -210,8 +196,9 @@ bot.on('callback_query', function(msg) {
     bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
     bot.sendMessage(msg.message.chat.id, drugsDescription[answer], goBackBuySeparated);
   } else if(answer !== 'GO_BACK_MENU') {
+    selectedRegion = answer;
     bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
-    bot.sendMessage(msg.message.chat.id, '😈 Виберите товар 😈', drugsOptions);
+    bot.sendMessage(msg.message.chat.id, '😈 Виберите товар 😈', getDrugsOptions());
   }
 });
 
@@ -222,13 +209,10 @@ bot.onText(/\/start/, function(msg, match) {
 bot.onText(/(\d{9,10}) (\d{1,10})/, async function(msg, match) {
   const receiptId = match[1];
   const amount = match[2];
-  bot.sendMessage(msg.chat.id, 'Подждите, идёт проверка оплаты... 💰🏃‍♂️    🚓');
-  const receipt = GetReceipt(receiptId, amount);
+  bot.sendMessage(msg.chat.id, 'Подождите, идёт проверка оплаты... 💰🏃‍♂️    🚓');
   setTimeout(async () => {
     try {
-        console.log(receipt);
-        // bot.deleteMessage(msg.chat.id, msg.message.message_id);
-        bot.sendMessage(msg.chat.id, 'Проверка завершилась 💰. К сожалению, вы ввели пробную или неверную транзакцию (ее не существует или она не предпологает пополнение счёта DRUG_STFF account)', goBackSeparated);    
+        bot.sendMessage(msg.chat.id, 'Проверка завершилась 💰. К сожалению, вы ввели пробную или неверную транзакцию (ее не существует или она не предпологает пополнение счёта Drug_STFF account)', goBackSeparated);
     } catch (error) {
       console.error('Shit', error);
     }
