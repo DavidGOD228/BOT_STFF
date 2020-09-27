@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="522d8864-20fa-4c8d-ae02-f44cd2bfd942" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/Bot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +37,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601225565270</updated>
       <workItem from="1601225567209" duration="561000" />
-      <workItem from="1601226426674" duration="5524000" />
+      <workItem from="1601226426674" duration="5705000" />
     </task>
     <servers />
   </component>
