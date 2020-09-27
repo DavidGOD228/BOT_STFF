@@ -180,7 +180,7 @@ bot.on('callback_query', function(msg) {
   } else if (answer == '6') {
     bot.deleteMessage(msg.message.chat.id, msg.message.message_id);
     bot.sendMessage(msg.from.id,
-        `👤 Профiль ${msg.from.id}\n` +
+        "👤 Профiль "+ msg.from.id + "\n" +
         " 💷 Сума на рахунку 💷 0 UAH\n" +
         " 👏 Всього покупок: 0\n" +
         " 💥 Рейтинг  (0)(0%)\n" +
